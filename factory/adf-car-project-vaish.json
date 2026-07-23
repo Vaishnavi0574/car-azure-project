@@ -1,0 +1,15 @@
+{
+	"name": "adf-car-project-vaish",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastasia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "430d1131-e7d8-44ca-89a5-5165eeecefff",
+		"tenantId": "b0ab9608-c737-4758-ba16-73950dc56635"
+	}
+}
