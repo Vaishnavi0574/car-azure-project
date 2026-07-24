@@ -1,0 +1,30 @@
+{
+	"name": "ds_http",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_github",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"flag_data": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": {
+					"value": "Vaishnavi0574/car-azure-project/refs/heads/main/data/@{dataset().flag_data}",
+					"type": "Expression"
+				}
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
