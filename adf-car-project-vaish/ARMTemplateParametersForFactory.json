@@ -1,0 +1,30 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-car-project-vaish"
+		},
+		"ls_azuresql_password": {
+			"value": ""
+		},
+		"ls_storage_account_accountKey": {
+			"value": ""
+		},
+		"ls_azuresql_properties_typeProperties_server": {
+			"value": "sscarserver.database.windows.net"
+		},
+		"ls_azuresql_properties_typeProperties_database": {
+			"value": "carprojectserver"
+		},
+		"ls_azuresql_properties_typeProperties_userName": {
+			"value": "vaishnavi0574"
+		},
+		"ls_github_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com/"
+		},
+		"ls_storage_account_properties_typeProperties_url": {
+			"value": "https://carprojectazurestorage.dfs.core.windows.net/"
+		}
+	}
+}
