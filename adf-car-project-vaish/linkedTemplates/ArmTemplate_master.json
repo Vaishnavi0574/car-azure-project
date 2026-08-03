@@ -11,6 +11,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'ls_azuresql'"
 		},
+		"ls_databricks_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'ls_databricks'"
+		},
 		"ls_storage_account_accountKey": {
 			"type": "secureString",
 			"metadata": "Secure string for 'accountKey' of 'ls_storage_account'"
@@ -26,6 +30,10 @@
 		"ls_azuresql_properties_typeProperties_userName": {
 			"type": "string",
 			"defaultValue": "vaishnavi0574"
+		},
+		"ls_databricks_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "0803-081603-ysy9z6dc"
 		},
 		"ls_github_properties_typeProperties_url": {
 			"type": "string",
@@ -65,6 +73,9 @@
 					"ls_azuresql_password": {
 						"value": "[parameters('ls_azuresql_password')]"
 					},
+					"ls_databricks_accessToken": {
+						"value": "[parameters('ls_databricks_accessToken')]"
+					},
 					"ls_storage_account_accountKey": {
 						"value": "[parameters('ls_storage_account_accountKey')]"
 					},
@@ -76,6 +87,9 @@
 					},
 					"ls_azuresql_properties_typeProperties_userName": {
 						"value": "[parameters('ls_azuresql_properties_typeProperties_userName')]"
+					},
+					"ls_databricks_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('ls_databricks_properties_typeProperties_existingClusterId')]"
 					},
 					"ls_github_properties_typeProperties_url": {
 						"value": "[parameters('ls_github_properties_typeProperties_url')]"
