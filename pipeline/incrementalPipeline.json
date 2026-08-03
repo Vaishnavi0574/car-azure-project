@@ -471,7 +471,7 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_fact_notebook"
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_facttable_notebook"
 				},
 				"linkedServiceName": {
 					"referenceName": "ls_databricks",
