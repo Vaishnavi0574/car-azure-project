@@ -297,6 +297,186 @@
 					"referenceName": "ls_azuresql",
 					"type": "LinkedServiceReference"
 				}
+			},
+			{
+				"name": "Silver_notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "watermarkUpdate",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/silver_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Model_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Silver_notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_model_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Branch_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Silver_notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_branch_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Dealer_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Silver_notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_dealer_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Date_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Silver_notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_date_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Fact_Notebook",
+				"type": "DatabricksNotebook",
+				"dependsOn": [
+					{
+						"activity": "Branch_Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Model_Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Dealer_Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Date_Notebook",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Repos/vineetaraj8433@gmail.com/car-azure-project/Databricks_notebook/gold_facttable_notebook"
+				},
+				"linkedServiceName": {
+					"referenceName": "ls_databricks",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"annotations": []
