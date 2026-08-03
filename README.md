@@ -18,9 +18,7 @@ The pipeline ingests raw data, transforms it into Bronze, Silver, and Gold layer
 
 # 🏗️ Architecture
 
-> Replace the image below with your architecture diagram.
-
-![Architecture](images/architecture.png)
+![Architecture](Screenshots/archietecture.png)
 
 ---
 
@@ -125,8 +123,6 @@ Fact Table
 
 ## Databricks Workspace
 
-Paste your notebook list.
-
 ![Workspace](Screenshots/notebooks.png)
 
 ---
@@ -157,7 +153,7 @@ Paste your notebook list.
 
 # 📈 Data Model
 
-![Star Schema](Screenshots/workflow.png)
+![Star Schema](Screenshots/data_model.png)
 
 ---
 
