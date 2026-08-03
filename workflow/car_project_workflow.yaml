@@ -1,0 +1,53 @@
+resources:
+  jobs:
+    car_project_workflow:
+      name: car_project_workflow
+      tasks:
+        - task_key: Silver_Data
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/silver_notebook
+            source: WORKSPACE
+        - task_key: Dim_Branch
+          depends_on:
+            - task_key: Silver_Data
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/gold_branch_notebook
+            base_parameters:
+              Incremental_flag: "1"
+            source: WORKSPACE
+        - task_key: Dim_Date
+          depends_on:
+            - task_key: Silver_Data
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/gold_date_notebook
+            base_parameters:
+              Incremental_flag: "1"
+            source: WORKSPACE
+        - task_key: FactSales
+          depends_on:
+            - task_key: Dim_Branch
+            - task_key: Dim_Model
+            - task_key: Dim_dealer
+            - task_key: Dim_Date
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/gold_fact_notebook
+            source: WORKSPACE
+        - task_key: Dim_Model
+          depends_on:
+            - task_key: Silver_Data
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/gold_model_notebook
+            base_parameters:
+              Incremental_flag: "1"
+            source: WORKSPACE
+        - task_key: Dim_dealer
+          depends_on:
+            - task_key: Silver_Data
+          notebook_task:
+            notebook_path: /Workspace/Users/vineetaraj8433@gmail.com/car_project/gold_dealer_notebook
+            base_parameters:
+              Incremental_flag: "1"
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
